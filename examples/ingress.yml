@@ -1,0 +1,22 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: public-ingress
+  namespace: default
+spec:
+  rules:
+  - host: www.mijnsite.nl
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: wordpress
+          servicePort: 80
+  - host: test.mijnsite.nl
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: test-wordpress
+          servicePort: 80
